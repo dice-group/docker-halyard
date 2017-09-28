@@ -1,10 +1,10 @@
-FROM bde2020/hadoop-base:1.2.0-hadoop2.8-java8 as hadoop-base
+FROM bde2020/hadoop-base:1.2.0-hadoop2.7.4-java8 as hadoop-base
 FROM bde2020/hbase-base:1.0.0-hbase1.2.6 as hbase-base
 
 FROM openjdk:8
 MAINTAINER Ivan Ermilov <ivan.s.ermilov@gmail.com>
 
-ENV HADOOP_VERSION=2.8.0
+ENV HADOOP_VERSION=2.7.4
 COPY --from=hadoop-base /opt/hadoop-$HADOOP_VERSION /opt/hadoop-$HADOOP_VERSION
 RUN ln -s /opt/hadoop-$HADOOP_VERSION/etc/hadoop /etc/hadoop
 ENV PATH /opt/hadoop-$HADOOP_VERSION/bin:$PATH
