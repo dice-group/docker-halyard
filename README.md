@@ -4,7 +4,7 @@ Docker image for [Halyard](https://github.com/merck/halyard) triplestore.
 
 # How to use
 
-## Standalone Halyard (local one node local setup)
+## Standalone Halyard (one node local setup)
 
 To deploy Halyard on one node:
 ```
