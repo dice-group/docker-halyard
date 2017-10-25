@@ -1,4 +1,4 @@
-FROM bde2020/hadoop-base:1.2.0-hadoop2.7.4-java8 as hadoop-base
+FROM bde2020/hadoop-base:2.0.0-hadoop2.7.4-java8 as hadoop-base
 FROM bde2020/hbase-base:1.0.0-hbase1.2.6 as hbase-base
 
 FROM openjdk:8

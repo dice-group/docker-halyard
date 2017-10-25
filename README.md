@@ -4,18 +4,19 @@ Docker image for [Halyard](https://github.com/merck/halyard) triplestore.
 
 # How to use
 
-## Deploying HBase
+## Standalone Halyard (local one node local setup)
 
-To deploy HBase use official BDE project [HBase docker image](https://github.com/big-data-europe/docker-hbase).
+To deploy Halyard on one node:
+```
+docker-compose -f docker-compose-standalone.yml up -d
+```
 
-## Using Halyard SDK
+## Load data
 
 ```
-make run-sdk
+make add-rdf
 ```
 
 ## Using Halyard Webapps
 
-```
-make run-webapps
-```
+Open http://localhost:8080/rdf4j-workbench in your browser and create new repository with halyardtable name and id. The repo will contain the data loaded in the previous step.

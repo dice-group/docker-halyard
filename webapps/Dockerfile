@@ -1,4 +1,4 @@
-FROM bde2020/hadoop-base:1.2.0-hadoop2.7.4-java8 as hadoop-base
+FROM bde2020/hadoop-base:2.0.0-hadoop2.7.4-java8 as hadoop-base
 FROM bde2020/hbase-base:1.0.0-hbase1.2.6 as hbase-base
 
 FROM tomcat:9-jre8
@@ -45,6 +45,8 @@ RUN ln -s /opt/hbase-1.2.6/lib/jsr173_1.0_api.jar /opt/hadoop-2.7.4/share/hadoop
 COPY --from=hbase-base /usr/lib/jvm/java-8-openjdk-amd64/ /usr/lib/jvm/java-8-openjdk-amd64/
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends net-tools curl netcat
 
 ENV PATH=$PATH:$JAVA_HOME/bin
 
