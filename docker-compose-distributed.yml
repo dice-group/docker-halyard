@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  halyard:
+    image: dicegroup/halyard-webapps:1.0.0-halyard1.2
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: dnsrr
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == akswnc4.aksw.uni-leipzig.de
+      labels:
+        traefik.docker.network: hbase
+        traefik.port: 8080
+    env_file:
+      - ./hadoop.env
+      - ./hbase.env
+
+networks:
+  hbase:
+    external:
+      name: hbase

@@ -11,6 +11,15 @@ To deploy Halyard on one node:
 docker-compose -f docker-compose-standalone.yml up -d
 ```
 
+## Distributed Docker Swarm Setup
+
+To deploy HBase use distributed setup from [BDE docker-hbase repository](https://github.com/big-data-europe/docker-hbase).
+
+Then deploy Halyard web apps:
+```
+docker stack deploy -c docker-compose-distributed.yml
+```
+
 ## Load data
 
 ```
