@@ -67,7 +67,7 @@ services:
       - ./hbase.env
   
   halyard:
-    image: dicegroup/halyard-webapps:1.0.0-halyard1.2
+    image: dicegroup/halyard:1.0.0-halyard1.2
     container_name: halyard
     ports:
       - 8080:8080
